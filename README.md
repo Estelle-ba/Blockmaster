@@ -4,7 +4,7 @@
 ## FR
 
 ### Description
-Un jeu multijoueur où chaques joueurs doivent se déblacer et détruire des cases pour empêcher les autres de se déplacer.
+Un jeu multijoueur où chaques joueurs doivent se déplacer et détruire des cases pour empêcher les autres de se déplacer.
 
 
 ### Comment jouer ?
