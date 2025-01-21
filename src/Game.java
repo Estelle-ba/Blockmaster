@@ -6,11 +6,16 @@ public class Game
     public static void main (String[] args) {
 
         char[][] lab = new char[11][10];
+        char[][] labs = new char[11][10];
         int currentX = 0;
         int currentY = 0;
         create_lab(lab, 11, 10);
         //@lab[0][0] = "X";
         screen(lab, 11, 10);
+        Files.writeLabFile(lab, 1);
+        labs = Files.loadLabFile(1);
+        System.out.println("---");
+        screen(labs, 11, 10);
 
     }
 
