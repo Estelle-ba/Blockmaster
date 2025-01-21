@@ -12,11 +12,6 @@ public class player {
         playing = true;
     }
 
-
-    public void notplay(){
-        playing = false;
-    }
-
     public void changePosition(int x, int y) {
         position[0] = y;
         position[1] = x;

@@ -38,6 +38,7 @@ public class gameboard {
         }
     }
 
+
     public void printBoard() {
         /**
          *
@@ -48,14 +49,55 @@ public class gameboard {
             }
             System.out.print('\n');
         }
+        System.out.print('\n');
 
     }
 
-    public void destruct() {
 
+    public void destruct(player player) {
+        /**
+         * This function bloc a case
+         */
+        // take
+        System.out.println(player.name +", choose somewhere to destruct");
+        System.out.print("Position x : ");
+        Scanner sc = new Scanner(System.in);
+        Byte x=0;
+        try{
+            x = sc.nextByte();
+        }
+        catch(Exception e){
+            destruct(player);
+        }
+        System.out.print("Position y : ");
+        Scanner sca = new Scanner(System.in);
+        Byte y = 0;
+        try{
+            y = sca.nextByte();
+        }
+        catch(Exception e){
+            destruct(player);
+        }
+
+
+        if(x<1 || x > board.length){
+            System.out.println("Not in a valid position !");
+            destruct(player);
+        }
+        else if(y<1 || y > board[0].length){
+            System.out.println("Not in a valid position !");
+            destruct(player);
+        }
+        else{
+            board[y-1][x-1] = "H";
+        }
     }
+
 
     public void movement_player(player player) {
+        /**
+         * This function move the player
+         */
         System.out.println(player.name +", it's your turn to move !");
         Scanner sc = new Scanner(System.in);
         String input = sc.nextLine();
@@ -96,11 +138,21 @@ public class gameboard {
             }
         }
         else if(input.equals("quit") || input.equals("QUIT")){
-            player.notplay();
+            nb_player -= 1;
         }
         else{
             movement_player(player);
         }
+    }
+
+    public void play(player player) {
+        /**
+         * This function is the normal way to play
+         */
+        printBoard();
+        movement_player(player);
+        printBoard();
+        destruct(player);
     }
 
 
@@ -123,17 +175,17 @@ public class gameboard {
         player player_3 = new player();
         player player_4 = new player();
 
+        //Change player attributes
         player_2.sign="X";
         player_2.name="Xname";
 
 
-
         obj.Create(player_1, player_2, player_3, player_4);
-        while(player_1.playing == true && player_2.playing == true) {
-            obj.printBoard();
-            obj.movement_player(player_1);
-            obj.printBoard();
-            obj.movement_player(player_2);
+
+
+        while(obj.nb_player > 1) {
+            obj.play(player_1);
+            obj.play(player_2);
         }
     }
 }
