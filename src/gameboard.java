@@ -167,25 +167,25 @@ public class gameboard {
     //Ce qui devra être dans la page main
     public static void main(String[] args){
         //  creating an object gameboard
-        gameboard obj = new gameboard();
-
-        //  creating player objects
-        player player_1 = new player();
-        player player_2 = new player();
-        player player_3 = new player();
-        player player_4 = new player();
-
-        //Change player attributes
-        player_2.sign="X";
-        player_2.name="Xname";
-
-
-        obj.Create(player_1, player_2, player_3, player_4);
-
-
-        while(obj.nb_player > 1) {
-            obj.play(player_1);
-            obj.play(player_2);
-        }
+//        gameboard obj = new gameboard();
+//
+//        //  creating player objects
+//        player player_1 = new player();
+//        player player_2 = new player();
+//        player player_3 = new player();
+//        player player_4 = new player();
+//
+//        //Change player attributes
+//        player_2.sign="X";
+//        player_2.name="Xname";
+//
+//
+//        obj.Create(player_1, player_2, player_3, player_4);
+//
+//
+//        while(obj.nb_player > 1) {
+//            obj.play(player_1);
+//            obj.play(player_2);
+//        }
     }
 }
