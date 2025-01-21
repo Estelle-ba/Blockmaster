@@ -1,4 +1,4 @@
-public class Game { // Définition de la classe englobante
+public class rules { // Définition de la classe englobante
     // Définition de la méthode rules_display
     public static void rules_display() {
         System.out.println("*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*");
