@@ -36,5 +36,5 @@ January 2025
 
 - [thimeobloc ](https://github.com/thimeobloc)
 - [DraxanLT](https://github.com/DraxanLT)
-- []()
+- [Nayash03](https://github.com/Nayash03)
 - [Estelle-ba](https://github.com/Estelle-ba)
