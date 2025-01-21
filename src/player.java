@@ -2,6 +2,8 @@ public class player {
     //Attributes
     int [] position = new int[2];
     boolean playing = false;
+    String sign = "Y";
+    String name = "Yname";
     player()
     {
     }
@@ -10,12 +12,13 @@ public class player {
         playing = true;
     }
 
-    public void changePosition(int x, int y) {
-        position[0] = x;
-        position[1] = y;
+
+    public void notplay(){
+        playing = false;
     }
 
-    public static void main(String[] args){
-        //  creating an object using new keyword
+    public void changePosition(int x, int y) {
+        position[0] = y;
+        position[1] = x;
     }
 }
