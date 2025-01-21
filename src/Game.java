@@ -1,9 +1,15 @@
 public class Game
 {
 
+
+
     public static void main (String[] args) {
+
         char[][] lab = new char[11][10];
+        int currentX = 0;
+        int currentY = 0;
         create_lab(lab, 11, 10);
+        //@lab[0][0] = "X";
         screen(lab, 11, 10);
 
     }
@@ -54,4 +60,10 @@ public class Game
 
         }
     }
+
+    public static void verifCollision(char[][] lab) {
+
+    }
+
+
 }
