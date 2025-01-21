@@ -1,5 +1,8 @@
 public class rules { // Définition de la classe englobante
     // Définition de la méthode rules_display
+
+    //String choiceF =
+
     public static void rules_display() {
         System.out.println("*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*");
         System.out.println("*-*-*-*-*-*-*-*RULES*-*-*-*-*-*-*");
@@ -16,7 +19,7 @@ public class rules { // Définition de la classe englobante
         try {
             System.in.read(); // Attend une pression sur n'importe quelle touche
         } catch (Exception e) {
-            e.printStackTrace();
+            Menu.mainMenu("");
         }
     }
 }

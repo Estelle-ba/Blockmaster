@@ -10,6 +10,9 @@ public class Menu {
 
     public static final Scanner entry = new Scanner(System.in); // Method to get the user's input
 
+    // Global & necessary variables
+    // ...
+
     /**
      * Function that displays the main menu in order to choose an option
      * @param choiceF as a string used to get what the user typed
@@ -45,6 +48,7 @@ public class Menu {
         // To go to the rules of the game
         } else if (choiceF.equals("RULES")) {
             System.out.println("Placeholder rules_display()"); // [X][X][X] Temporary [X][X][X]
+            rules.rules_display();
         // To exit the program
         } else {
             System.out.println("------------------------------------------------------------------------");
