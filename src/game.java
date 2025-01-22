@@ -28,8 +28,8 @@ public class game {
             player p = new player();
             list[i] = p;
         }
-        list[0].start_play("Wname",'W',5, 4, board);
-        list[1].start_play("Xname",'X',5, 5, board);
+        list[0].start_play("Wname",'W',5,4, board);
+        list[1].start_play("Xname",'X',5,5, board);
 
         if (choice == 3){
             list[2].start_play("Yname",'Y',4, 4, board);
@@ -41,9 +41,12 @@ public class game {
         return list;
     }
     public static player[] start_to_play(player[] list) {
-        player stock = list[0];
+        player stock;
         for(int i = 0; i < list.length; i++){
             int randint = new Random().nextInt(list.length);
+            stock = list[i];
+            list[i] = list[randint];
+            list[randint] = stock;
 
         }
         return list;
@@ -51,7 +54,27 @@ public class game {
 
     public static void main(String[] args){
         //  creating an object gameboard
+        System.out.println("Placeholder playOptions()"); // [X][X][X] Temporary [X][X][X]
+        gameboard board = new gameboard();
 
+        player[] list = game.start_to_play(board);
+        player[] list_player = start_to_play(list);
+        int number_player = 0;
+        for(int i = 0; i < list_player.length; i++){
+            int j = i+1;
+            System.out.println("Player " +j + " is called " + list_player[i].name);
+        }
 
+        board.printBoard();
+
+        while(board.nb_player > 1) {
+            list_player[number_player].play(board);
+            System.out.println(number_player);
+            number_player++;
+
+            if (number_player == list_player.length){
+                number_player = 0;
+            }
+        }
     }
 }

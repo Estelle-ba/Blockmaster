@@ -4,7 +4,6 @@ public class gameboard{
     //Attributes
     char [][] board= new char[10][11];
     byte nb_player = 0;
-    int[] first_coords = new int[4];
     char empty = '_';
     char wall = 'H';
     gameboard()
@@ -33,55 +32,58 @@ public class gameboard{
          */
         // take
 
-        if(x<0 || x > board.length-1){
+        if(x-1<0 || x > board.length-1){
             System.out.println("Not in a valid position !");
             player.destruct(this);
         }
-        else if(y<0 || y > board[0].length-1){
+        else if(y-1<0 || y-1 > board[0].length-1){
             System.out.println("Not in a valid position !");
             player.destruct(this);
         }
-        else{
+        else if (board[y-1][x-1] == empty){
             board[y-1][x-1] = 'H';
         }
     }
 
 
-    public void movement_player(player player, String input) {
-        if(input.equals("z") || input.equals("Z")) {
-            if (player.position[1] - 1 >= 0) {
-                if (board[player.position[1] - 1][player.position[0]] == empty) {
-                    board[player.position[1]][player.position[0]] = empty;
-                    player.position[1] -= 1;
+    public void movement_player(player player, char input) {
+        System.out.println(input);
+        int x = player.position[0];
+        int y = player.position[1];
+        if (input == 'q' || input == 'Q') {
+            if (x - 1 >= 0) {
+                if (board[y][x - 1] == empty) {
+                    board[y][x] = empty;
+                    player.changePosition(x - 1, y);
+                    board[y][x - 1] = player.sign;
                 }
             }
-        }
-        else if(input.equals("q") || input.equals("Q")){
-            if(player.position[0]-1 >= 0){
-                if(board[player.position[1]][player.position[0]-1] == empty) {
-                    board[player.position[1]][player.position[0]] = empty;
-                    player.position[0] -= 1;
+        } else if (input == 'z' || input == 'Z') {
+            if (y - 1 >= 0) {
+                if (board[y - 1][x] == empty) {
+                    board[y][x] = empty;
+                    player.changePosition(x, y - 1);
+                    board[y - 1][x] = player.sign;
                 }
             }
-        }
-        else if(input.equals("s") || input.equals("S")){
-            if(player.position[1]+1 < board.length){
-                if(board[player.position[1]+1][player.position[0]] == empty) {
-                    board[player.position[1]][player.position[0]] = empty;
-                    player.position[1] += 1;
+        } else if (input == 'd' || input == 'D') {
+            if (x + 1 <= board[0].length - 1) {
+                if (board[y][x + 1] == empty) {
+                    board[y][x] = empty;
+                    player.changePosition(x + 1, y);
+                    board[y][x + 1] = player.sign;
                 }
             }
         }
         else{
-            if(player.position[0]+1 < board[0].length){
-                if(board[player.position[1]][player.position[0]+1] == empty) {
-                    board[player.position[1]][player.position[0]] = empty;
-                    player.position[0] += 1;
-
+            if (y + 1 <= board.length - 1) {
+                if (board[y + 1][x] == empty) {
+                    board[y][x] = empty;
+                    player.changePosition(x, y + 1);
+                    board[y + 1][x] = player.sign;
                 }
             }
         }
-        board[player.position[1]][player.position[0]] = player.sign;
     }
 
 }
