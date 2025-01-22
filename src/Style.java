@@ -27,11 +27,6 @@ public class Style {
                         }
                         break;
 
-                    // Assign the os with a white block
-                    case "o":
-
-                        break;
-
                     // Assign the W player with a blue block
                     case "W":
                         System.out.print(colors.BG_Blue + "   " + colors.C_Reset);
