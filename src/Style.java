@@ -11,6 +11,13 @@ public class Style {
         public static final String BG_Gray = "\u001B[48;2;120;120;120m"; // Background color in gray
         public static final String C_Reset = "\u001B[0m"; // Reset text status
 
+        public static final String BLACK = "\u001B[48;2;0;0;0m"; // Fond noir pur
+        public static final String GrayDark = "\u001B[48;2;60;60;60m"; // Gris foncé
+        public static final String White = "\u001B[48;2;255;255;255m"; // Fond blanc pur
+
+
+
+
     }
 
     public static void colorDisplay(char[][] board) {
