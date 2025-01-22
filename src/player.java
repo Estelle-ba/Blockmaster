@@ -1,16 +1,20 @@
+
 public class player {
     //Attributes
-    String [][] board= new String[11][10];
+    int [] position = new int[2];
+    boolean playing = false;
+    String sign = "Y";
+    String name = "Yname";
     player()
     {
-        System.out.println("Welcome to javaTpoint");
     }
     //Method
     public void play() {
+        playing = true;
     }
-    public static void main(String[] args){
-        //  creating an object using new keyword
-        player obj = new player();
-        obj.play();
+
+    public void changePosition(int x, int y) {
+        position[0] = y;
+        position[1] = x;
     }
 }

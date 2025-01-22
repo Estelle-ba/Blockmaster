@@ -5,7 +5,7 @@ public class Files {
     public static void writeLabFile(char[][] lab, int filename) {
         try (BufferedWriter writer = new BufferedWriter(new FileWriter(new File("lab" + String.valueOf(filename + ".labgen"))))) {
             for (char[] row : lab) {
-                writer.write(row); // Écrire la ligne du labyrinthe dans le fichier
+                writer.write(row); // Écrire la ligne dans le fichier
                 writer.newLine(); // Ajouter une nouvelle ligne après chaque ligne
             }
 

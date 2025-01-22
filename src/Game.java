@@ -10,12 +10,14 @@ public class Game
         int currentX = 0;
         int currentY = 0;
         create_lab(lab, 11, 10);
-        //@lab[0][0] = "X";
+        lab[3][0] = 'X';
+        System.out.println(verifCollision(lab, 1, 1));
+
         screen(lab, 11, 10);
         Files.writeLabFile(lab, 1);
         labs = Files.loadLabFile(1);
         System.out.println("---");
-        screen(labs, 11, 10);
+        //screen(labs, 11, 10);
 
     }
 
@@ -66,8 +68,22 @@ public class Game
         }
     }
 
-    public static void verifCollision(char[][] lab) {
+    public static boolean verifCollision(char[][] lab, int x, int y) {
+        if (lab[x+1][y] == 'X') { // right
+            return false;
+        }
+        if (lab[x-1][y] == 'X') { //left
+            return false;
+        }
+        if (lab[x][y+1] == 'X') { //top
+            return false;
+        }
+        if (lab[x][y-1] == 'X') { //down
+            return false;
+        }
 
+
+        return true;
     }
 
 
