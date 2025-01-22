@@ -13,12 +13,12 @@ public class Style {
 
     }
 
-    public static void colorDisplay(String[][] board) {
+    public static void colorDisplay(char[][] board) {
         for (int i = 0; i < board.length; i++) {
             for (int j = 0; j < board[0].length; j++) {
                 switch (board[i][j]) {
                     // Assign the _s with a black block
-                    case "_":
+                    case '_':
                         if((i+j)%2 == 0){
                             System.out.print(colors.BG_BeautyBlack + "   " + colors.C_Reset);
                         }
@@ -28,26 +28,26 @@ public class Style {
                         break;
 
                     // Assign the W player with a blue block
-                    case "W":
+                    case 'W':
                         System.out.print(colors.BG_Blue + "   " + colors.C_Reset);
                         break;
 
                     // Assign the X player with a blue block
-                    case "X":
+                    case 'X':
                         System.out.print(colors.BG_Red + "   " + colors.C_Reset);
                         break;
 
                     // Assign the Y player with a blue block
-                    case "Y":
+                    case 'Y':
                         System.out.print(colors.BG_Green + "   " + colors.C_Reset);
                         break;
 
                     // Assign the Z player with a blue block
-                    case "Z":
+                    case 'Z':
                         System.out.print(colors.BG_Yellow + "   " + colors.C_Reset);
                         break;
 
-                    case "H":
+                    case 'H':
                         System.out.print(colors.BG_Gray + "   " + colors.C_Reset);
                         break;
                 }

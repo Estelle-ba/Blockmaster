@@ -39,24 +39,25 @@ public class Menu {
         // To go to the party option before launching a party
         if (choiceF.equals("PLAY")) {
             System.out.println("Placeholder playOptions()"); // [X][X][X] Temporary [X][X][X]
+            gameboard board = new gameboard();
 
-            gameboard obj = new gameboard();
+            player[] list_player = game.start_to_play(board);
+            int number_player = 0;
+            for(int i = 0; i < list_player.length; i++){
+                int j = i+1;
+                System.out.println("Player " +j + " is called " + list_player[i].name);
+            }
 
-            //  creating player objects
-            player player_1 = new player();
-            player player_2 = new player();
-            player player_3 = new player();
-            player player_4 = new player();
+            board.printBoard();
 
-            //Change player attributes
-            player_2.sign="X";
-            player_2.name="Xname";
+            while(board.nb_player > 1) {
+                list_player[number_player].play(board);
+                System.out.println(number_player);
+                number_player++;
 
-            obj.Create(player_1, player_2, player_3, player_4);
-
-            while(obj.nb_player > 1) {
-                obj.play(player_1);
-                obj.play(player_2);
+                if (number_player == list_player.length-1){
+                    number_player = 0;
+                }
             }
 
         // To go to the rules of the game
