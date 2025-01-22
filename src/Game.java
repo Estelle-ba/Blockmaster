@@ -8,10 +8,15 @@ public class Game
         char[][] lab = new char[11][10];
         char[][] labs = new char[11][10];
         int currentX = 0;
-        int currentY = 0;
+        int currentY = 9;
         create_lab(lab, 11, 10);
-        lab[3][0] = 'X';
-        System.out.println(verifCollision(lab, 1, 1));
+
+        //lab[0][0] = 'X';
+        lab[0][8] = 'X';
+        lab[1][9] = 'X';
+
+        lab[currentX][currentY] = 'P';
+        System.out.println(WallCollision(lab, currentX, currentY));
 
         screen(lab, 11, 10);
         Files.writeLabFile(lab, 1);
@@ -68,22 +73,40 @@ public class Game
         }
     }
 
-    public static boolean verifCollision(char[][] lab, int x, int y) {
-        if (lab[x+1][y] == 'X') { // right
-            return false;
+    public static boolean WallCollision(char[][] lab, int x, int y) {
+        int cpt = 0;
+
+        if (x == 0) {
+            cpt += 1;
         }
-        if (lab[x-1][y] == 'X') { //left
-            return false;
+        else if (lab[x - 1][y] == 'X') { // top
+            cpt += 1;
         }
-        if (lab[x][y+1] == 'X') { //top
-            return false;
+
+        if (x == 10) {
+            cpt += 1;
         }
-        if (lab[x][y-1] == 'X') { //down
-            return false;
+        else if (lab[x + 1][y] == 'X') { // down
+            cpt += 1;
+        }
+
+        if (y == 0) {
+            cpt += 1;
+        }
+        else if (lab[x][y - 1] == 'X') { // left
+            cpt += 1;
+        }
+
+        if (y == 9) {
+            cpt += 1;
+        }
+        else if (lab[x][y + 1] == 'X') { // right
+            cpt += 1;
         }
 
 
-        return true;
+
+        return cpt >= 4;
     }
 
 
