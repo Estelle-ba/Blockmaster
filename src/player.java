@@ -20,48 +20,51 @@ public class player{
     }
 
     public void changePosition(int x, int y) {
-        position[0] = y;
-        position[1] = x;
+        position[0] = x;
+        position[1] = y;
     }
 
     public void move(gameboard board) {
         System.out.println(name +", it's your turn to move !");
         Scanner sc = new Scanner(System.in);
-        String input = sc.nextLine();
-        if (input.equals("z") || input.equals("q")||input.equals("s") || input.equals("d")) {
-            board.movement_player(this, input);
-        }
-        else if (input.equals("Z") || input.equals("Q")||input.equals("S") || input.equals("D")) {
-            board.movement_player(this, input);
-        }
-        else if(input.equals("quit") || input.equals("QUIT")){
+        String entry = sc.nextLine();
+        if(entry.equals("quit") || entry.equals("QUIT")){
             board.nb_player -= 1;
         }
-        else{
-            move(board);
+        else {
+            char input = entry.charAt(0);
+            if (input == 'z' || input == 'q' || input == 's' || input == 'd') {
+                board.movement_player(this, input);
+            } else if (input == 'Z' || input == 'Q' || input == 'S' || input == 'D') {
+                board.movement_player(this, input);
+            }
+            else{
+                move(board);
+            }
         }
     }
     public void destruct(gameboard board) {
         System.out.println(name +", choose somewhere to destruct");
         System.out.print("Position x : ");
-        Scanner sc = new Scanner(System.in);
-        Byte x=0;
-        try{
-            x = sc.nextByte();
-        }
-        catch(Exception e){
-            destruct(board);
-        }
+
+        byte x = bytecord();
         System.out.print("Position y : ");
-        Scanner sca = new Scanner(System.in);
-        Byte y = 0;
+        byte y = bytecord();
+
+        board.destruct(this, x, y);
+    }
+
+    public static byte bytecord(){
+        Scanner sc = new Scanner(System.in);
+        byte num;
         try{
-            y = sca.nextByte();
+            num = sc.nextByte();
         }
         catch(Exception e){
-            destruct(board);
+            System.out.println("Not a number");
+            return bytecord();
         }
-        board.destruct(this, x, y);
+        return num;
     }
 
     public void play(gameboard board) {
