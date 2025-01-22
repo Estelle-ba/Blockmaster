@@ -1,6 +1,9 @@
 import java.util.Scanner;
 
-public class player{
+public class player {
+
+    Scanner sc = new Scanner(System.in);
+
     //Attributes
     int [] position = new int[2];
     boolean playing = false;
@@ -25,6 +28,7 @@ public class player{
     }
 
     public void move(gameboard board) {
+
         System.out.println(name +", it's your turn to move !");
         Scanner sc = new Scanner(System.in);
         String input = sc.nextLine();
@@ -41,27 +45,61 @@ public class player{
             move(board);
         }
     }
+
+    public static Byte letterToNumber(char letter) {
+        if (letter >= 'A' && letter <= 'Z') {
+            return (byte) (letter - 'A' + 1);
+        } else if (letter >= 'a' && letter <= 'z') {
+            return (byte) (letter - 'a' + 1);
+        } else {
+            throw new IllegalArgumentException("The character is not a letter.");
+        }
+    }
+
+    private boolean isValidLetter(char letter) {
+        return (letter >= 'A' && letter <= 'Z') || (letter >= 'a' && letter <= 'z');
+    }
+
     public void destruct(gameboard board) {
-        System.out.println(name +", choose somewhere to destruct");
-        System.out.print("Position x : ");
-        Scanner sc = new Scanner(System.in);
-        Byte x=0;
-        try{
-            x = sc.nextByte();
-        }
-        catch(Exception e){
+        System.out.println(name + ", choose a square to destroy");
+        System.out.print("Position : ");
+        try {
+            String input = sc.nextLine();
+
+            if (input.length() < 2) {
+                System.out.println("⚠ Incorrect entry (please follow instructions) ⚠");
+                destruct(board);
+                return;
+            }
+
+            String part1String = input.substring(0, 1);
+            String part2String = input.substring(1);
+
+            char charx = part1String.charAt(0);
+
+            if (!isValidLetter(charx)) {
+                System.out.println("⚠ Incorrect entry (the first character must be a letter between A & K) ⚠");
+                destruct(board);
+                return;
+            }
+
+            byte x = letterToNumber(charx);
+            byte y;
+
+            try {
+                y = Byte.parseByte(part2String);
+            } catch (NumberFormatException e) {
+                System.out.println("⚠ Incorrect entry (the second character must be number between 1 & 10) ⚠");
+                destruct(board);
+                return;
+            }
+
+            board.destruct(this, x, y);
+
+        } catch (Exception e) {
+            System.out.println("⚠ An error has occurred (please retry) ⚠");
             destruct(board);
         }
-        System.out.print("Position y : ");
-        Scanner sca = new Scanner(System.in);
-        Byte y = 0;
-        try{
-            y = sca.nextByte();
-        }
-        catch(Exception e){
-            destruct(board);
-        }
-        board.destruct(this, x, y);
     }
 
     public void play(gameboard board) {

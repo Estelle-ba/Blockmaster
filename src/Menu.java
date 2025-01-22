@@ -21,7 +21,9 @@ public class Menu {
         System.out.println("to block your opponents in order to win !");
         System.out.println("------------------------------------------------------------------------");
 
-        while (!choiceF.equals("PLAY") && !choiceF.equals("RULES") && !choiceF.equals("QUIT")) {
+        while (!choiceF.equals("PLAY") && !choiceF.equals("play")
+                && !choiceF.equals("RULES") && !choiceF.equals("rules")
+                && !choiceF.equals("QUIT") && !choiceF.equals("quit")) {
             // When you write down something invalid
             if (choiceF != "") {
                 System.out.println("⚠ Incorrect entry (please follow instructions MOTHERFUCKER... plz) ⚠");
@@ -37,8 +39,8 @@ public class Menu {
             }
         }
         // To go to the party option before launching a party
-        if (choiceF.equals("PLAY")) {
-            System.out.println("Placeholder playOptions()"); // [X][X][X] Temporary [X][X][X]
+        if (choiceF.equals("PLAY") || choiceF.equals("play")) {
+
             gameboard board = new gameboard();
 
             player[] list_player = game.start_to_play(board);
@@ -61,10 +63,10 @@ public class Menu {
             }
 
         // To go to the rules of the game
-        } else if (choiceF.equals("RULES")) {
+        } else if (choiceF.equals("RULES") || choiceF.equals("rules")) {
             rules.rules_display();
         // To exit the program
-        } else {
+        } else if (choiceF.equals("QUIT") || choiceF.equals("quit")){
             System.out.println("------------------------------------------------------------------------");
             System.out.println("Destruct Chess* is closing, thank you for playing !");
             System.out.println("Credits : Draxan LT, Thiméo O, Estelle B, Shayan C");

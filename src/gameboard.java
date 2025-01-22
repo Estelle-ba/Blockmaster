@@ -21,7 +21,7 @@ public class gameboard{
         /**
          *
          */
-        System.out.println(" A  B  C  D  E  F  G  H  I  J  K ");
+
         Style.colorDisplay(board);
         }
 

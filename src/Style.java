@@ -14,7 +14,12 @@ public class Style {
     }
 
     public static void colorDisplay(char[][] board) {
+        System.out.println("    A  B  C  D  E  F  G  H  I  J  K ");
         for (int i = 0; i < board.length; i++) {
+            if (i < 9) {
+                System.out.print(" "+(i+1)+" ");
+            } else { System.out.print((i+1)+" "); }
+
             for (int j = 0; j < board[0].length; j++) {
                 switch (board[i][j]) {
                     // Assign the _s with a black block
