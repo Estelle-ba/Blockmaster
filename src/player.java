@@ -1,24 +1,28 @@
+import java.util.Scanner;
 
-public class player {
+public class player{
     //Attributes
     int [] position = new int[2];
     boolean playing = false;
-    String sign = "Y";
+    char sign = 'Y';
     String name = "Yname";
     player()
     {
     }
     //Method
-    public void play() {
+    public void start_play(String new_name, char new_sign, int x, int y, gameboard board) {
         playing = true;
+        name = new_name;
+        sign = new_sign;
+        changePosition(x, y);
+        board.nb_player +=1;
+        board.board[y][x] = sign;
     }
 
     public void changePosition(int x, int y) {
         position[0] = y;
         position[1] = x;
     }
-<<<<<<< Updated upstream
-=======
 
     public void move(gameboard board) {
         System.out.println(name +", it's your turn to move !");
@@ -82,7 +86,7 @@ public class player {
             cpt += 1;
         }
 
-        if (x == 9) {
+        if (x == 10) {
             cpt += 1;
         }
         else if (lab[x + 1][y] == board.wall) { // down
@@ -96,7 +100,7 @@ public class player {
             cpt += 1;
         }
 
-        if (y == 10) {
+        if (y == 9) {
             cpt += 1;
         }
         else if (lab[x][y + 1] == board.wall) { // right
@@ -107,5 +111,4 @@ public class player {
         return cpt >= 4;
     }
 
->>>>>>> Stashed changes
 }
