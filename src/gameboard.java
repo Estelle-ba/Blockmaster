@@ -43,11 +43,17 @@ public class gameboard {
         /**
          *
          */
+<<<<<<< Updated upstream
         for (int i = 0; i < board.length; i++) {
             for (int j = 0; j < board[0].length; j++) {
                 System.out.print(board[i][j] + " ");
             }
             System.out.print('\n');
+=======
+        System.out.println(" A  B  C  D  E  F  G  H  I  J  K ");
+
+        Style.colorDisplay(board);
+>>>>>>> Stashed changes
         }
         System.out.print('\n');
 

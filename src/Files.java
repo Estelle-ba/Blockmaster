@@ -2,6 +2,7 @@ import java.io.*;
 
 public class Files {
 
+
     public static void writeLabFile(char[][] lab, int filename) {
         try (BufferedWriter writer = new BufferedWriter(new FileWriter(new File("lab" + String.valueOf(filename + ".labgen"))))) {
             for (char[] row : lab) {
