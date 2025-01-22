@@ -42,16 +42,18 @@ public class gameboard {
     public void printBoard() {
         /**
          *
+         *
+         *
+         *
+         *
+         *
+         *
+         *
+         *
          */
-        for (int i = 0; i < board.length; i++) {
-            for (int j = 0; j < board[0].length; j++) {
-                System.out.print(board[i][j] + " ");
-            }
-            System.out.print('\n');
+        Style.colorDisplay(board);
         }
-        System.out.print('\n');
 
-    }
 
 
     public void destruct(player player) {
@@ -103,7 +105,7 @@ public class gameboard {
         String input = sc.nextLine();
         if(input.equals("z") || input.equals("Z")){
             if(player.position[1]-1 >= 0){
-                if(board[player.position[1]-1][player.position[0]] == "_") {
+                if(board[player.position[1]-1][player.position[0]] == "_" || board[player.position[1]-1][player.position[0]] == "o") {
                     board[player.position[1]][player.position[0]] = "_";
                     player.position[1] -= 1;
                     board[player.position[1]][player.position[0]] = player.sign;

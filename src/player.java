@@ -2,7 +2,7 @@ public class player {
     //Attributes
     int [] position = new int[2];
     boolean playing = false;
-    String sign = "Y";
+    String sign = "W";
     String name = "Yname";
     player()
     {
