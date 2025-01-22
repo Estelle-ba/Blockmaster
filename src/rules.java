@@ -1,8 +1,18 @@
-public class rules { // Définition de la classe englobante
-    // Définition de la méthode rules_display
 
-    //String choiceF =
 
+// Affichage des règles
+    // En-tête décoratif avec "RULES"
+    // Affichage des règles du jeu
+        // Message pour revenir au menu
+
+// Système pour quitter la page
+    // Attendre une touche
+        // Revenir au menu après la touche
+    // Afficher une erreur si problème
+
+
+
+public class rules {
     public static void rules_display() {
         System.out.println("*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*");
         System.out.println("*-*-*-*-*-*-*-*RULES*-*-*-*-*-*-*");
@@ -18,8 +28,10 @@ public class rules { // Définition de la classe englobante
 
         try {
             System.in.read(); // Attend une pression sur n'importe quelle touche
+            Menu.mainMenu(""); // Retour au menu principal après l'entrée
         } catch (Exception e) {
-            Menu.mainMenu("");
+            e.printStackTrace(); // Affiche une erreur en cas de problème
         }
     }
 }
+
