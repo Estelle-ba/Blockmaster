@@ -1,11 +1,5 @@
 import java.util.Scanner;
 
-/**
- * @author Draxan LAUNAY-TRAN
- * @author Thiméo OZANEAUX
- * @author Estelle BANDHAVONG
- * @author Shayan CAHELO
- */
 public class Menu {
 
     public static final Scanner entry = new Scanner(System.in); // Method to get the user's input
@@ -45,9 +39,28 @@ public class Menu {
         // To go to the party option before launching a party
         if (choiceF.equals("PLAY")) {
             System.out.println("Placeholder playOptions()"); // [X][X][X] Temporary [X][X][X]
+
+            gameboard obj = new gameboard();
+
+            //  creating player objects
+            player player_1 = new player();
+            player player_2 = new player();
+            player player_3 = new player();
+            player player_4 = new player();
+
+            //Change player attributes
+            player_2.sign="X";
+            player_2.name="Xname";
+
+            obj.Create(player_1, player_2, player_3, player_4);
+
+            while(obj.nb_player > 1) {
+                obj.play(player_1);
+                obj.play(player_2);
+            }
+
         // To go to the rules of the game
         } else if (choiceF.equals("RULES")) {
-            System.out.println("Placeholder rules_display()"); // [X][X][X] Temporary [X][X][X]
             rules.rules_display();
         // To exit the program
         } else {
@@ -58,15 +71,5 @@ public class Menu {
             System.exit(0);
         }
 
-    }
-
-    public static void main(String[] args) {
-        // G2 - Destruct Chess
-
-        // Necessary variables
-        String choiceF = "";
-
-        // Print the main menu
-        mainMenu(choiceF);
     }
 }
