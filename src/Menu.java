@@ -45,19 +45,20 @@ public class Menu {
 
             player[] list_player = game.start_to_play(board);
             int number_player = 0;
-            for(int i = 0; i < list_player.length; i++){
-                int j = i+1;
-                System.out.println("Player " +j + " is called " + list_player[i].name);
-            }
-
-            board.printBoard();
 
             while(board.nb_player > 1) {
-                list_player[number_player].play(board);
-                System.out.println(number_player);
+                player current_player = list_player[number_player];
+                if(current_player != null) {
+                    if (player.WallCollision(board, board.board, current_player.position[1], current_player.position[0])) {
+                        board.nb_player -= 1;
+                        list_player[number_player] = null;
+                    }
+                    else {
+                        current_player.play(board);
+                    }
+                }
                 number_player++;
-
-                if (number_player == list_player.length-1){
+                if (number_player == list_player.length){
                     number_player = 0;
                 }
             }
