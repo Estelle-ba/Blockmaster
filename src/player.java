@@ -3,15 +3,17 @@ import java.util.Scanner;
 public class player{
     //Attributes
     int [] position = new int[2];
-    boolean playing = false;
-    char sign = 'Y';
-    String name = "Yname";
+    char sign;
+    String name;
     player()
     {
     }
+
     //Method
     public void start_play(String new_name, char new_sign, int x, int y, gameboard board) {
-        playing = true;
+        /**
+         * This function put all the thing necessary for a player to start a game
+         */
         name = new_name;
         sign = new_sign;
         changePosition(x, y);
@@ -20,12 +22,29 @@ public class player{
     }
 
     public void changePosition(int x, int y) {
+        /**
+         * This function change the coordinate of the player
+         */
         position[0] = x;
         position[1] = y;
     }
+    public void changeName(){
+        System.out.println("Choose your name");
+        Scanner sc = new Scanner(System.in);
+        String entry = sc.nextLine();
+        if(entry.length() < 2 || entry.length() > 20){
+            System.out.println("Too long ! Your name will be : " + name);
+        }
+        else{
+            name = entry;
+        }
+    }
 
     public void move(gameboard board) {
-        System.out.println(name +", it's your turn to move !");
+        /**
+         * This function ask the player the coordinate where he wants to destruct
+         */
+        System.out.println(name +", it's your turn to move ! Choose z (up), q(left), s(down) or d(right)");
         Scanner sc = new Scanner(System.in);
         String entry = sc.nextLine();
         if(entry.equals("quit") || entry.equals("QUIT")){
@@ -44,6 +63,9 @@ public class player{
         }
     }
     public void destruct(gameboard board) {
+        /**
+         * This function ask the player the coordinate where he wants to destruct
+         */
         System.out.println(name +", choose somewhere to destruct");
         System.out.print("Position x : ");
 
@@ -55,6 +77,9 @@ public class player{
     }
 
     public static byte bytecord(){
+        /**
+         * This function look if the thing ask is a number
+         */
         Scanner sc = new Scanner(System.in);
         byte num;
         try{

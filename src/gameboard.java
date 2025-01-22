@@ -18,7 +18,7 @@ public class gameboard{
 
     public void printBoard() {
         /**
-         *
+         * This function make the gameboard appears
          */
          System.out.println(" A  B  C  D  E  F  G  H  I  J  K ");
          Style.colorDisplay(board);
@@ -46,8 +46,10 @@ public class gameboard{
     }
 
 
-    public void movement_player(player player, char input) {
-        System.out.println(input);
+    public void movement_player(player player, char input){
+        /**
+         * This function moves the player
+         */
         int x = player.position[0];
         int y = player.position[1];
         if (input == 'q' || input == 'Q') {
