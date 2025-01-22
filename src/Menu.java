@@ -24,7 +24,7 @@ public class Menu {
         while (!choiceF.equals("PLAY") && !choiceF.equals("RULES") && !choiceF.equals("QUIT")) {
             // When you write down something invalid
             if (choiceF != "") {
-                System.out.println("⚠ Incorrect entry (please follow instructions MOTHERFUCKER) ⚠");
+                System.out.println("⚠ Incorrect entry (please follow instructions MOTHERFUCKER... plz) ⚠");
                 System.out.println("------------------------------------------------------------------------");
             }
             // Choose what to do
