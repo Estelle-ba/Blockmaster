@@ -48,9 +48,7 @@ public class Menu {
             game.turns(board,list_player,number_player);
 
 
-
         // To go to the rules of the game
-        } else if (choiceF.equals("RULES") || choiceF.equals("rules")) {
             rules.rules_display();
         // To exit the program
         } else if (choiceF.equals("QUIT") || choiceF.equals("quit")){
