@@ -31,12 +31,13 @@ public class player {
         position[0] = x;
         position[1] = y;
     }
+
     public void changeName(){
         System.out.println("Choose your name");
         Scanner sc = new Scanner(System.in);
         String entry = sc.nextLine();
         if(entry.length() < 2 || entry.length() > 20){
-            System.out.println("Too long ! Your name will be : " + name);
+            System.out.println("Not available ! Your name will be : " + name);
         }
         else{
             name = entry;

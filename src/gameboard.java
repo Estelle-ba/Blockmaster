@@ -22,7 +22,7 @@ public class gameboard{
          */
 
         Style.colorDisplay(board);
-        }
+    }
 
 
 
@@ -30,7 +30,6 @@ public class gameboard{
         /**
          * This function bloc a case
          */
-        // take
 
         if(x-1<0 || x > board.length-1){
             System.out.println("Not in a valid position !");
@@ -45,7 +44,6 @@ public class gameboard{
         }
     }
 
-
     public void movement_player(player player, char input){
         /**
          * This function moves the player
@@ -56,36 +54,34 @@ public class gameboard{
             if (x - 1 >= 0) {
                 if (board[y][x - 1] == empty) {
                     board[y][x] = empty;
-                    player.changePosition(x - 1, y);
-                    board[y][x - 1] = player.sign;
+                    x-=1;
                 }
             }
         } else if (input == 'z' || input == 'Z') {
             if (y - 1 >= 0) {
                 if (board[y - 1][x] == empty) {
                     board[y][x] = empty;
-                    player.changePosition(x, y - 1);
-                    board[y - 1][x] = player.sign;
+                    y-=1;
                 }
             }
         } else if (input == 'd' || input == 'D') {
             if (x + 1 <= board[0].length - 1) {
                 if (board[y][x + 1] == empty) {
                     board[y][x] = empty;
-                    player.changePosition(x + 1, y);
-                    board[y][x + 1] = player.sign;
+                    x+=1;
                 }
             }
         }
-        else{
+        else if (input == 's' || input == 'S') {
             if (y + 1 <= board.length - 1) {
                 if (board[y + 1][x] == empty) {
                     board[y][x] = empty;
-                    player.changePosition(x, y + 1);
-                    board[y + 1][x] = player.sign;
+                    y+=1;
                 }
             }
         }
+        player.changePosition(x, y);
+        board[y][x] = player.sign;
     }
 
 }

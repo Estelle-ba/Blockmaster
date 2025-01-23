@@ -37,12 +37,11 @@ public class game {
         list[0].start_play("Waluigi",'W',5,4, board);
         list[1].start_play("Mario",'X',5,5, board);
 
-        if (choice == 3){
+        if (choice >2 ){
             list[2].start_play("Luigi",'Y',4, 4, board);
-        }
-
-        else if (choice == 4){
-            list[3].start_play("Warrio",'Z',4,5, board);
+            if (choice == 4) {
+                list[3].start_play("Warrio", 'Z', 4, 5, board);
+            }
         }
         return list;
     }
