@@ -14,7 +14,7 @@ public class game {
             Thread.currentThread().interrupt();
         }
     }
-    public static final String SCORES_FILE = "scores.txt"; // Fichier des scores
+    public static final String SCORES_FILE = "scores.txt";
 
 
     /**

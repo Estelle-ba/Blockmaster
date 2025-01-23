@@ -13,7 +13,7 @@ public class rules {
         System.out.println("------------------------------------------------------------------------");
         System.out.println("-------------------------------- RULES ---------------------------------");
         System.out.println("------------------------------------------------------------------------");
-        System.out.println("                      Welcome to Destruct Chess");
+        System.out.println("                        Welcome to Block Master");
         System.out.println(" The rules of the game are simple:");
         System.out.println(" ");
         System.out.println(" 1. A player cannot destroy an occupied or already destroyed square.");

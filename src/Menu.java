@@ -30,7 +30,7 @@ public class Menu {
     public static void mainMenu(String choiceM) {
         // Main Menu Banner
         System.out.println("------------------------------------------------------------------------");
-        System.out.println("  ◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤————  Destruct Chess*  ————◥◣◥◣◥◣◥◣◥◣◥◣◥◣◥");
+        System.out.println("  ◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤————  Block Master  ————◥◣◥◣◥◣◥◣◥◣◥◣◥◣◥");
         System.out.println("------------------------------------------------------------------------");
         // Description
         System.out.println("Destruct Chess is a game where you have to click on specific places ");
