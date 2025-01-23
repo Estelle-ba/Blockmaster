@@ -48,10 +48,11 @@ public class player {
         }
     }
 
+    /**
+     * This function ask the player the coordinate where he wants to destruct
+     */
     public void choice_where_to_move(gameboard board) {
-        /**
-         * This function ask the player the coordinate where he wants to destruct
-         */
+
         System.out.println(" Choose somewhere to move ! Choose z (up), q(left), s(down) or d(right)");
         Scanner sc = new Scanner(System.in);
         String entry = sc.nextLine();
@@ -73,6 +74,12 @@ public class player {
         }
     }
 
+    /**
+     * Converts a letter to its corresponding numeric position in the alphabet.
+     * @param letter the character to be converted (must be a letter from 'A' to 'Z' or 'a' to 'z')
+     * @return the numeric position of the letter in the alphabet (1-26)
+     * @throws IllegalArgumentException if the input character is not a letter
+     */
     public static Byte letterToNumber(char letter) {
         if (letter >= 'A' && letter <= 'Z') {
             return (byte) (letter - 'A' + 1);
@@ -83,14 +90,20 @@ public class player {
         }
     }
 
+    /**
+     * Checks if a character is a valid letter in the English alphabet.
+     * @param letter the character to validate
+     * @return true if the character is a letter, false otherwise
+     */
     private boolean isValidLetter(char letter) {
         return (letter >= 'A' && letter <= 'Z') || (letter >= 'a' && letter <= 'z');
     }
 
+    /**
+     * This function ask the player the coordinate where he wants to destruct
+     */
     public void choice_where_to_destruct(gameboard board) {
-        /**
-         * This function ask the player the coordinate where he wants to destruct
-         */
+
         System.out.println(name + ", choose a square to destroy");
         System.out.print("Position : ");
         try {

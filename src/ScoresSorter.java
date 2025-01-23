@@ -1,8 +1,14 @@
 import java.util.List;
 
+/**
+ * Utility class for sorting player scores and names.
+ */
 public class ScoresSorter {
 
-    // Sort from smallest to largest
+    /**
+     * Sorts a list of players in ascending order based on their scores.
+     * @param players a list of players where each player is represented.
+     */
     public static void sortAsc(List<String[]> players) {
         for (int i = 1; i < players.size(); i++) {
             String[] current = players.get(i);
@@ -24,7 +30,10 @@ public class ScoresSorter {
         }
     }
 
-    // Sort from largest to smallest
+    /**
+     * Sorts a list of players in descending order based on their scores.
+     * @param players a list of players where each player is represented.
+     */
     public static void sortDesc(List<String[]> players) {
         for (int i = 1; i < players.size(); i++) {
             String[] current = players.get(i);

@@ -1,7 +1,13 @@
 public class Style {
 
+    /**
+     * Provides ANSI color codes for styling console output.
+     * This class contains constants representing various background and text colors
+     * using ANSI escape codes. The colors are defined for aesthetic purposes, such as
+     * representing a chessboard theme or providing highlights.
+     */
     public static class colors {
-        // ANSI codes for colors
+
         public static final String BG_BeautyBlack = "\u001B[48;2;63;33;15m"; // Background color in vintage chess black
         public static final String BG_White = "\u001B[48;2;227;192;123m"; // Background color in vintage chess white
         public static final String BG_Blue = "\u001B[48;2;65;69;255m"; // Background color in blue
@@ -14,12 +20,15 @@ public class Style {
         public static final String BLACK = "\u001B[48;2;0;0;0m"; // Fond noir pur
         public static final String GrayDark = "\u001B[48;2;60;60;60m"; // Gris foncé
         public static final String White = "\u001B[48;2;255;255;255m"; // Fond blanc pur
-
-
-
-
     }
 
+    /**
+     * Displays a game board with colored blocks based on cell values.
+     * This method renders a 2D character array representing the game board.
+     * Each character in the array corresponds to a specific element of the game
+     * and is displayed using ANSI color codes for better visualization.
+     * @param board a 2D character array representing the game board.
+     */
     public static void colorDisplay(char[][] board) {
         System.out.println("    A  B  C  D  E  F  G  H  I  J  K ");
         for (int i = 0; i < board.length; i++) {
@@ -29,7 +38,7 @@ public class Style {
 
             for (int j = 0; j < board[0].length; j++) {
                 switch (board[i][j]) {
-                    // Assign the _s with a black block
+                    // Assign the _s with colored blocks
                     case '_':
                         if((i+j)%2 == 0){
                             System.out.print(colors.BG_BeautyBlack + "   " + colors.C_Reset);

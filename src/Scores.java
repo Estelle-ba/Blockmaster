@@ -148,18 +148,18 @@ public class Scores {
             }
         }
         if (choiceS.equals("ACS") || choiceS.equals("acs")) {
-            // To go to the score page
+            // To sort the scores from smallest to largest
             sortBy = true;
             scorePageDisplay();
 
         } else if (choiceS.equals("DESC") || choiceS.equals("desc")) {
-            // To go to the score page
+            // To sort the scores from largest to smallest
 
             sortBy = false;
             Scores.scorePageDisplay();
 
         } else if (choiceS.equals("MENU") || choiceS.equals("menu")) {
-            // To go to the rules of the game
+            // To go back to the menu
             Menu.mainMenu("");
 
 
