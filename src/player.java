@@ -9,6 +9,7 @@ public class player {
     char sign;
     String name;
     String color;
+    boolean RR = false;
     player()
     {
     }
@@ -57,6 +58,10 @@ public class player {
             board.movement_player(this, input);
         } else if (input == 'Z' || input == 'Q' || input == 'S' || input == 'D') {
             board.movement_player(this, input);
+        }
+        else if(input == 'b' || input == 'B'){
+            RR = true;
+            choice_where_to_move(board);
         }
         else{
             choice_where_to_move(board);
