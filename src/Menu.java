@@ -43,25 +43,11 @@ public class Menu {
 
             gameboard board = new gameboard();
 
-            player[] list_player = game.start_to_play(board);
-            int number_player = 0;
+            player[] list_player = game.start_party(board);
+            byte number_player = 0;
+            game.turns(board,list_player,number_player);
 
-            while(board.nb_player > 1) {
-                player current_player = list_player[number_player];
-                if(current_player != null) {
-                    if (player.WallCollision(board, board.board, current_player.position[1], current_player.position[0])) {
-                        board.nb_player -= 1;
-                        list_player[number_player] = null;
-                    }
-                    else {
-                        current_player.play(board);
-                    }
-                }
-                number_player++;
-                if (number_player == list_player.length){
-                    number_player = 0;
-                }
-            }
+
 
         // To go to the rules of the game
         } else if (choiceF.equals("RULES") || choiceF.equals("rules")) {
