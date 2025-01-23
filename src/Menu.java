@@ -51,7 +51,7 @@ public class Menu {
             game.turns(board, list_player, number_player, RR);
         } else if (choiceF.equals("SCORE") || choiceF.equals("score")) {
         // To go to the score page
-            Score.score_display();
+            Scores.score_display();
 
 
         } else if (choiceF.equals("RULES") || choiceF.equals("rules")) {
