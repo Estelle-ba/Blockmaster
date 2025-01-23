@@ -1,5 +1,3 @@
-import java.util.Scanner;
-
 public class gameboard{
     //Attributes
     char [][] board= new char[10][11];
@@ -33,14 +31,14 @@ public class gameboard{
 
         if(x-1<0 || x > board.length-1){
             System.out.println("Not in a valid position !");
-            player.destruct(this);
+            player.choice_where_to_destruct(this);
         }
         else if(y-1<0 || y-1 > board[0].length-1){
             System.out.println("Not in a valid position !");
-            player.destruct(this);
+            player.choice_where_to_destruct(this);
         }
         else if (board[y-1][x-1] == empty){
-            board[y-1][x-1] = 'H';
+            board[y-1][x-1] = wall;
         }
     }
 
@@ -54,21 +52,21 @@ public class gameboard{
             if (x - 1 >= 0) {
                 if (board[y][x - 1] == empty) {
                     board[y][x] = empty;
-                    x-=1;
+                    x -= 1;
                 }
             }
         } else if (input == 'z' || input == 'Z') {
             if (y - 1 >= 0) {
                 if (board[y - 1][x] == empty) {
                     board[y][x] = empty;
-                    y-=1;
+                    y -= 1;
                 }
             }
         } else if (input == 'd' || input == 'D') {
             if (x + 1 <= board[0].length - 1) {
                 if (board[y][x + 1] == empty) {
                     board[y][x] = empty;
-                    x+=1;
+                    x += 1;
                 }
             }
         }
@@ -76,7 +74,7 @@ public class gameboard{
             if (y + 1 <= board.length - 1) {
                 if (board[y + 1][x] == empty) {
                     board[y][x] = empty;
-                    y+=1;
+                    y += 1;
                 }
             }
         }

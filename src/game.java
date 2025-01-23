@@ -34,14 +34,15 @@ public class game {
             player p = new player();
             list[i] = p;
         }
-        list[0].start_play("Waluigi",'W',5,4, board);
-        list[1].start_play("Mario",'X',5,5, board);
+        list[0].create_new_player("Waluigi", Style.colors.BG_Blue,'W',5,4, board);
+        list[1].create_new_player("Mario",Style.colors.BG_Red,'X',5,5, board);
 
-        if (choice >2 ){
-            list[2].start_play("Luigi",'Y',4, 4, board);
-            if (choice == 4) {
-                list[3].start_play("Warrio", 'Z', 4, 5, board);
-            }
+        if (choice == 3){
+            list[2].create_new_player("Luigi",Style.colors.BG_Green,'Y',4, 4, board);
+        }
+
+        else if (choice == 4){
+            list[3].create_new_player("Warrio",Style.colors.BG_Yellow,'Z',4,5, board);
         }
         return list;
     }
@@ -61,15 +62,15 @@ public class game {
         return list;
     }
 
-    public static player[] start_to_play(gameboard board) {
+    public static player[] start_party(gameboard board) {
         /**
          * This function reunate all the other function necessary to start the game
          **/
         player[] list = game.add_player(board);
 
         for(int i = 0; i < list.length; i++){
-            int j = i+1;
             list[i].changeName();
+            System.out.println("You'll be the color : "+list[i].color + "   " + Style.colors.C_Reset);
         }
 
         player[] list_player = random_player(list);
@@ -77,10 +78,33 @@ public class game {
         return list_player;
     }
 
-
-    // Ce sera dans le main
-    public static void main(String[] args){
-        //  creating an object gameboard
-
+    public static player turns(gameboard board, player[] list_player, byte number_player) {
+        if(board.nb_player > 1) {
+            player current_player = list_player[number_player];
+            if(current_player != null) {
+                if (player.WallCollision(board, board.board, current_player.position[1], current_player.position[0])) {
+                    board.nb_player -= 1;
+                    System.out.println(current_player.name + " loose !");
+                    list_player[number_player] = null;
+                }
+                else {
+                    current_player.during_partie(board);
+                }
+            }
+            number_player++;
+            if (number_player == list_player.length){
+                number_player = 0;
+            }
+            return turns(board, list_player, number_player);
+        }
+        else{
+            for (int i = 0; i < list_player.length; i++) {
+                if (list_player[i] != null) {
+                    System.out.println(list_player[i].name + " won !!!");
+                    return list_player[i];
+                }
+            }
+        }
+        return null;
     }
 }

@@ -8,12 +8,13 @@ public class player {
     int [] position = new int[2];
     char sign;
     String name;
+    String color;
     player()
     {
     }
 
     //Method
-    public void start_play(String new_name, char new_sign, int x, int y, gameboard board) {
+    public void create_new_player(String new_name, String new_color, char new_sign, int x, int y, gameboard board) {
         /**
          * This function put all the thing necessary for a player to start a game
          */
@@ -22,6 +23,7 @@ public class player {
         changePosition(x, y);
         board.nb_player +=1;
         board.board[y][x] = sign;
+        color = new_color;
     }
 
     public void changePosition(int x, int y) {
@@ -31,20 +33,19 @@ public class player {
         position[0] = x;
         position[1] = y;
     }
-
     public void changeName(){
         System.out.println("Choose your name");
         Scanner sc = new Scanner(System.in);
         String entry = sc.nextLine();
         if(entry.length() < 2 || entry.length() > 20){
-            System.out.println("Not available ! Your name will be : " + name);
+            System.out.println("Not a valid name! Your name will be : " + name);
         }
         else{
             name = entry;
         }
     }
 
-    public void move(gameboard board) {
+    public void choice_where_to_move(gameboard board) {
         /**
          * This function ask the player the coordinate where he wants to destruct
          */
@@ -62,7 +63,7 @@ public class player {
                 board.movement_player(this, input);
             }
             else{
-                move(board);
+                choice_where_to_move(board);
             }
         }
     }
@@ -81,7 +82,7 @@ public class player {
         return (letter >= 'A' && letter <= 'Z') || (letter >= 'a' && letter <= 'z');
     }
 
-    public void destruct(gameboard board) {
+    public void choice_where_to_destruct(gameboard board) {
         /**
          * This function ask the player the coordinate where he wants to destruct
          */
@@ -92,7 +93,7 @@ public class player {
 
             if (input.length() < 2) {
                 System.out.println("⚠ Incorrect entry (please follow instructions) ⚠");
-                destruct(board);
+                choice_where_to_destruct(board);
                 return;
             }
 
@@ -103,7 +104,7 @@ public class player {
 
             if (!isValidLetter(charx)) {
                 System.out.println("⚠ Incorrect entry (the first character must be a letter between A & K) ⚠");
-                destruct(board);
+                choice_where_to_destruct(board);
                 return;
             }
 
@@ -114,7 +115,7 @@ public class player {
                 y = Byte.parseByte(part2String);
             } catch (NumberFormatException e) {
                 System.out.println("⚠ Incorrect entry (the second character must be number between 1 & 10) ⚠");
-                destruct(board);
+                choice_where_to_destruct(board);
                 return;
             }
 
@@ -122,20 +123,18 @@ public class player {
 
         } catch (Exception e) {
             System.out.println("⚠ An error has occurred (please retry) ⚠");
-            destruct(board);
+            choice_where_to_destruct(board);
         }
     }
 
-    public void play(gameboard board) {
+    public void during_partie(gameboard board) {
         /**
          * This function is the normal way to play
          */
-        if(board.nb_player > 1){
-            move(board);
-            board.printBoard();
-            destruct(board);
-            board.printBoard();
-        }
+        choice_where_to_move(board);
+        board.printBoard();
+        choice_where_to_destruct(board);
+        board.printBoard();
     }
 
     public static boolean WallCollision(gameboard board, char[][] lab, int x, int y) {
