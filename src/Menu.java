@@ -40,9 +40,9 @@ public class Menu {
                 choiceF = entry.nextLine();
             }
         }
-        // To go to the party option before launching a party
-        if (choiceF.equals("PLAY") || choiceF.equals("play")) {
 
+        if (choiceF.equals("PLAY") || choiceF.equals("play")) {
+            // To go to the party option before launching a party
             gameboard board = new gameboard();
             player[] list_player = game.start_party(board);
             byte number_player = 0;
@@ -50,16 +50,17 @@ public class Menu {
 
             game.turns(board, list_player, number_player, RR);
         } else if (choiceF.equals("SCORE") || choiceF.equals("score")) {
-        // To go to the score page
-            Scores.score_display();
+            // To go to the score page
+            Scores.scorePageDisplay();
 
 
         } else if (choiceF.equals("RULES") || choiceF.equals("rules")) {
-        // To go to the rules of the game
+            // To go to the rules of the game
             rules.rules_display();
 
-        // To exit the program
+
         } else if (choiceF.equals("QUIT") || choiceF.equals("quit")){
+            // To exit the program
             System.out.println("------------------------------------------------------------------------");
             System.out.println("         Destruct Chess* is closing, thank you for playing !");
             System.out.println("         Credits : Draxan LT, Thiméo O, Estelle B, Shayan C");
