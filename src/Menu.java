@@ -48,7 +48,7 @@ public class Menu {
             }
             // Choose what to do
             System.out.println("- Write down what you want to do : -------------------------------------");
-            System.out.println("⌈       PLAY = Launch a party       |       SCORE = See the rules      ⌉");
+            System.out.println("⌈       PLAY = Launch a party       |       SCORE = Go to score page   ⌉");
             System.out.println("⌊       RULES = See the rules       |       QUIT = Stop the game       ⌋");
             System.out.println("------------------------------------------------------------------------");
             // Write down a new choice
