@@ -1,12 +1,14 @@
 import java.util.Random;
 import java.util.Scanner;
-import java.util.concurrent.TimeUnit;
 
 public class game {
     public static void wait(int secondsToSleep) {
+        /**
+         * Make the script wait
+         */
         try
         {
-            Thread.sleep(secondsToSleep * 1000);
+            Thread.sleep(secondsToSleep * 1000);// multiply by 1 000 because it's in milliseconds
         } catch(InterruptedException ie){
             Thread.currentThread().interrupt();
         }
