@@ -62,8 +62,10 @@ public class Menu {
             player[] list_player = game.start_party(board);
             byte number_player = 0;
             boolean RR = false;
+            boolean Keyboard = false;
 
-            game.turns(board, list_player, number_player, RR);
+            game.turns(board, list_player, number_player, RR, Keyboard);
+
         } else if (choiceM.equals("SCORE") || choiceM.equals("score")) {
             // To go to the score page
             Scores.scorePageDisplay();

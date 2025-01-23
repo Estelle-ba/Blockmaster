@@ -1,5 +1,5 @@
-import java.util.Scanner;
 import java.util.Random;
+import java.util.Scanner;
 
 public class player {
 
@@ -12,15 +12,21 @@ public class player {
     String color;
     int score = 0;
     boolean RR = false;
-    player()
-    {
-    }
+    boolean keyboard_key = false;
+    char[][] keys = {{'z','Z'}, {'q','Q'},{'s','S'},{'d','D'}};
 
-    //Method
+    player(){}
+
+    /**
+     * This function put all the thing necessary for a player to start a game
+     * @param new_name : add a name to the player
+     * @param new_color : add a color to the player
+     * @param new_sign : add a sign to the player
+     * @param x : take the horizontal coordonates
+     * @param y : take the horizontal coordonates
+     * @param board : take the gameboard to put the player in it
+     */
     public void create_new_player(String new_name, String new_color, char new_sign, int x, int y, gameboard board) {
-        /**
-         * This function put all the thing necessary for a player to start a game
-         */
         name = new_name;
         sign = new_sign;
         changePosition(x, y);
@@ -29,18 +35,23 @@ public class player {
         color = new_color;
     }
 
+    /**
+     * This function change the coordinate of the player
+     * @param x : take the horizontal coordonates
+     * @param y : take the horizontal coordonates
+     */
     public void changePosition(int x, int y) {
-        /**
-         * This function change the coordinate of the player
-         */
         position[0] = x;
         position[1] = y;
     }
+
+    /**
+     * This function change the name of the player
+     */
     public void changeName(){
-        System.out.println("Choose your name");
-        Scanner sc = new Scanner(System.in);
+        System.out.println("Choose your name between 2 and 10 characters");
         String entry = sc.nextLine();
-        if(entry.length() < 2 || entry.length() > 20){
+        if(entry.length() < 2 || entry.length() > 10){
             System.out.println("Not a valid name! Your name will be : " + name);
         }
         else{
@@ -50,28 +61,41 @@ public class player {
 
     /**
      * This function ask the player the coordinate where he wants to destruct
+     * @param board : take the gameboard
      */
     public void choice_where_to_move(gameboard board) {
-
         System.out.println(" Choose somewhere to move ! Choose z (up), q(left), s(down) or d(right)");
-        Scanner sc = new Scanner(System.in);
         String entry = sc.nextLine();
-        char input = entry.charAt(0);
+        char input = 'A';
+        try {
+            input = entry.charAt(0);
+        }catch (Exception e){
+            choice_where_to_move(board);
+        }
         if (input == 'z' || input == 'q' || input == 's' || input == 'd') {
             board.movement_player(this, input);
+
         } else if (input == 'Z' || input == 'Q' || input == 'S' || input == 'D') {
             board.movement_player(this, input);
-        }
-        else if(input == 'b' || input == 'B'){
+
+        } else if (input == 'b' || input == 'B') {
             int random = new Random().nextInt(5);
-            if(random == 0){
+
+            if (random == 0) {
                 RR = true;
             }
             choice_where_to_move(board);
-        }
-        else{
+        } else if (input == 'p' || input == 'P') {
+            int random = new Random().nextInt(5);
+
+            if (random == 0) {
+                keyboard_key = true;
+            }
+            choice_where_to_move(board);
+        } else {
             choice_where_to_move(board);
         }
+
     }
 
     /**
@@ -101,9 +125,9 @@ public class player {
 
     /**
      * This function ask the player the coordinate where he wants to destruct
+     * @param board : take the gameboard
      */
     public void choice_where_to_destruct(gameboard board) {
-
         System.out.println(name + ", choose a square to destroy");
         System.out.print("Position : ");
         try {
@@ -112,7 +136,6 @@ public class player {
             if (input.length() < 2) {
                 System.out.println("⚠ Incorrect entry (please follow instructions) ⚠");
                 choice_where_to_destruct(board);
-                return;
             }
 
             String part1String = input.substring(0, 1);
@@ -123,7 +146,6 @@ public class player {
             if (!isValidLetter(charx)) {
                 System.out.println("⚠ Incorrect entry (the first character must be a letter between A & K) ⚠");
                 choice_where_to_destruct(board);
-                return;
             }
 
             byte x = letterToNumber(charx);
@@ -136,7 +158,6 @@ public class player {
                 choice_where_to_destruct(board);
                 return;
             }
-
             board.destruct(this, x, y);
 
         } catch (Exception e) {
@@ -145,50 +166,18 @@ public class player {
         }
     }
 
-    public void during_partie(gameboard board) {
-        /**
-         * This function is the normal way to play
-         */
-        System.out.println(this.color + "   " + Style.colors.C_Reset +" "+ name +", it's your turn");
-        choice_where_to_move(board);
-        board.printBoard();
-        choice_where_to_destruct(board);
-        board.printBoard();
+    /**
+     * This function put the keyboard random
+     */
+    public void keyboard_keys() {
+        System.out.println("Your keyboards has been changed");
+        char[] stock;
+
+        for(int i = 0; i < keys.length; i++){   //make random the list of keys
+            int randint = new Random().nextInt(keys.length);
+            stock = keys[i];
+            keys[i] = keys[randint];
+            keys[randint] = stock;
+        }
     }
-
-    public static boolean WallCollision(gameboard board, char[][] lab, int x, int y) {
-        int cpt = 0;
-
-        if (x == 0) {
-            cpt += 1;
-        }
-        else if (lab[x - 1][y] != board.empty) { // top
-            cpt += 1;
-        }
-
-        if (x == 10) {
-            cpt += 1;
-        }
-        else if (lab[x + 1][y] != board.empty) { // down
-            cpt += 1;
-        }
-
-        if (y == 0) {
-            cpt += 1;
-        }
-        else if (lab[x][y - 1] != board.empty) { // left
-            cpt += 1;
-        }
-
-        if (y == 9) {
-            cpt += 1;
-        }
-        else if (lab[x][y + 1] != board.empty) { // right
-            cpt += 1;
-        }
-
-
-        return cpt >= 4;
-    }
-
 }
