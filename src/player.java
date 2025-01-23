@@ -85,11 +85,11 @@ public class player {
             }
             choice_where_to_move(board);
         } else if (input == 'p' || input == 'P') {
-//            int random = new Random().nextInt(5);
-//
-//            if (random == 0) {
+            int random = new Random().nextInt(5);
+
+            if (random == 0) {
                 keyboard_key = true;
-//            }
+            }
             choice_where_to_move(board);
         } else {
             choice_where_to_move(board);
