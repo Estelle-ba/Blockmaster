@@ -45,8 +45,9 @@ public class Menu {
             player[] list_player = game.start_party(board);
             byte number_player = 0;
             boolean RR = false;
+            boolean Keyboard = false;
 
-            game.turns(board, list_player, number_player, RR);
+            game.turns(board, list_player, number_player, RR, Keyboard);
 
         } else if (choiceF.equals("RULES") || choiceF.equals("rules")) {
         // To go to the rules of the game
