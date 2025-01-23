@@ -1,4 +1,5 @@
 import java.util.Scanner;
+import java.util.Random;
 
 public class player {
 
@@ -10,6 +11,7 @@ public class player {
     String name;
     String color;
     int score = 0;
+    boolean RR = false;
     player()
     {
     }
@@ -58,6 +60,13 @@ public class player {
             board.movement_player(this, input);
         } else if (input == 'Z' || input == 'Q' || input == 'S' || input == 'D') {
             board.movement_player(this, input);
+        }
+        else if(input == 'b' || input == 'B'){
+            int random = new Random().nextInt(5);
+            if(random == 0){
+                RR = true;
+            }
+            choice_where_to_move(board);
         }
         else{
             choice_where_to_move(board);

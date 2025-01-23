@@ -2,7 +2,17 @@ import java.util.Random;
 import java.util.Scanner;
 
 public class game {
-
+    public static void wait(int secondsToSleep) {
+        /**
+         * Make the script wait
+         */
+        try
+        {
+            Thread.sleep(secondsToSleep * 1000);// multiply by 1 000 because it's in milliseconds
+        } catch(InterruptedException ie){
+            Thread.currentThread().interrupt();
+        }
+    }
     public static int choice_nb_player(){
         /**
          * This function ask the number of player to start the game
@@ -60,6 +70,29 @@ public class game {
         }
         return list;
     }
+    public static void RR(player player){
+        /**
+         * Futur player will be rickroll
+         */
+        System.out.println(player.color + "   " + Style.colors.C_Reset+ " " + player.name + ", listen to this banger !!!");
+        String[] lyrics= {"Never gonna give you up", "Never gonna let you down", "Never gonna run around and desert you",
+                "Never gonna make you cry", "Never gonna say goodbye", "Never gonna tell a lie and hurt you"};
+        String music = Style.colors.BG_Gray + "\uD83C\uDFB6";
+        wait(2);
+        for (int i = 0; i < 18; i++){
+            System.out.print(music);
+
+        }
+        wait(3);
+        System.out.println(Style.colors.C_Reset + '\n');
+        for (int i = 0; i < lyrics.length; i++){
+            System.out.print(music);
+            System.out.print(Style.colors.C_Reset + " " + lyrics[i]);
+            System.out.println('\n');
+            wait(2);
+        }
+        System.out.println("Hope you liked it !!!");
+    }
 
     public static player[] start_party(gameboard board) {
         /**
@@ -77,7 +110,7 @@ public class game {
         return list_player;
     }
 
-    public static player turns(gameboard board, player[] list_player, byte number_player) {
+    public static player turns(gameboard board, player[] list_player, byte number_player, boolean RR) {
         if(board.nb_player > 1) {
             player current_player = list_player[number_player];
             if(current_player != null) {
@@ -87,14 +120,22 @@ public class game {
                     list_player[number_player] = null;
                 }
                 else {
-                    current_player.during_partie(board);
+                    if(RR == true){
+                        RR(current_player);
+                        RR = false;
+                        board.printBoard();
+                    }
+                    else {
+                        current_player.during_partie(board);
+                        RR = current_player.RR;
+                    }
                 }
             }
             number_player++;
             if (number_player == list_player.length){
                 number_player = 0;
             }
-            return turns(board, list_player, number_player);
+            return turns(board, list_player, number_player, RR);
         }
         else{
             for (int i = 0; i < list_player.length; i++) {
@@ -106,4 +147,5 @@ public class game {
         }
         return null;
     }
+
 }

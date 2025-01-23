@@ -46,11 +46,13 @@ public class Menu {
             gameboard board = new gameboard();
             player[] list_player = game.start_party(board);
             byte number_player = 0;
+            boolean RR = false;
 
-            game.turns(board, list_player, number_player);
+            game.turns(board, list_player, number_player, RR);
         } else if (choiceF.equals("SCORE") || choiceF.equals("score")) {
         // To go to the score page
             Score.score_display();
+
 
         } else if (choiceF.equals("RULES") || choiceF.equals("rules")) {
         // To go to the rules of the game
