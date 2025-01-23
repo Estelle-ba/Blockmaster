@@ -49,7 +49,7 @@ public class player {
         /**
          * This function ask the player the coordinate where he wants to destruct
          */
-        System.out.println(name +", it's your turn to move ! Choose z (up), q(left), s(down) or d(right)");
+        System.out.println(" Choose somewhere to move ! Choose z (up), q(left), s(down) or d(right)");
         Scanner sc = new Scanner(System.in);
         String entry = sc.nextLine();
         if(entry.equals("quit") || entry.equals("QUIT")){
@@ -131,6 +131,7 @@ public class player {
         /**
          * This function is the normal way to play
          */
+        System.out.println(this.color + "   " + Style.colors.C_Reset +" "+ name +", it's your turn");
         choice_where_to_move(board);
         board.printBoard();
         choice_where_to_destruct(board);
@@ -143,28 +144,28 @@ public class player {
         if (x == 0) {
             cpt += 1;
         }
-        else if (lab[x - 1][y] == board.wall) { // top
+        else if (lab[x - 1][y] != board.empty) { // top
             cpt += 1;
         }
 
         if (x == 10) {
             cpt += 1;
         }
-        else if (lab[x + 1][y] == board.wall) { // down
+        else if (lab[x + 1][y] != board.empty) { // down
             cpt += 1;
         }
 
         if (y == 0) {
             cpt += 1;
         }
-        else if (lab[x][y - 1] == board.wall) { // left
+        else if (lab[x][y - 1] != board.empty) { // left
             cpt += 1;
         }
 
         if (y == 9) {
             cpt += 1;
         }
-        else if (lab[x][y + 1] == board.wall) { // right
+        else if (lab[x][y + 1] != board.empty) { // right
             cpt += 1;
         }
 

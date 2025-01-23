@@ -42,14 +42,15 @@ public class Menu {
         if (choiceF.equals("PLAY") || choiceF.equals("play")) {
 
             gameboard board = new gameboard();
-
             player[] list_player = game.start_party(board);
             byte number_player = 0;
-            game.turns(board,list_player,number_player);
 
+            game.turns(board, list_player, number_player);
 
+        } else if (choiceF.equals("RULES") || choiceF.equals("rules")) {
         // To go to the rules of the game
             rules.rules_display();
+
         // To exit the program
         } else if (choiceF.equals("QUIT") || choiceF.equals("quit")){
             System.out.println("------------------------------------------------------------------------");

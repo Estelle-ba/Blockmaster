@@ -26,8 +26,8 @@ public class game {
         /**
          * This function create the players with the number that was given
          */
-        //int choice = choice_nb_player();
-        int choice = 2;
+        int choice = choice_nb_player();
+        //int choice = 2;
         player[] list = new player[choice];
 
         for(int i = 0; i < choice; i++){
@@ -37,12 +37,11 @@ public class game {
         list[0].create_new_player("Waluigi", Style.colors.BG_Blue,'W',5,4, board);
         list[1].create_new_player("Mario",Style.colors.BG_Red,'X',5,5, board);
 
-        if (choice == 3){
+        if (choice > 2){
             list[2].create_new_player("Luigi",Style.colors.BG_Green,'Y',4, 4, board);
-        }
-
-        else if (choice == 4){
-            list[3].create_new_player("Warrio",Style.colors.BG_Yellow,'Z',4,5, board);
+            if (choice == 4) {
+                list[3].create_new_player("Warrio", Style.colors.BG_Yellow, 'Z', 4, 5, board);
+            }
         }
         return list;
     }
