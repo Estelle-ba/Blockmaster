@@ -9,6 +9,7 @@ public class player {
     char sign;
     String name;
     String color;
+    int score = 0;
     player()
     {
     }

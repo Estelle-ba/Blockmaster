@@ -9,7 +9,7 @@ public class game {
          */
         System.out.println("Choose the number of players you want to play between 2 and 4");
         Scanner sc = new Scanner(System.in);
-        Byte number=0;
+        Byte number = 0;
         try{
             number = sc.nextByte();
         }
