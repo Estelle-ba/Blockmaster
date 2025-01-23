@@ -52,19 +52,14 @@ public class player {
         System.out.println(" Choose somewhere to move ! Choose z (up), q(left), s(down) or d(right)");
         Scanner sc = new Scanner(System.in);
         String entry = sc.nextLine();
-        if(entry.equals("quit") || entry.equals("QUIT")){
-            board.nb_player -= 1;
+        char input = entry.charAt(0);
+        if (input == 'z' || input == 'q' || input == 's' || input == 'd') {
+            board.movement_player(this, input);
+        } else if (input == 'Z' || input == 'Q' || input == 'S' || input == 'D') {
+            board.movement_player(this, input);
         }
-        else {
-            char input = entry.charAt(0);
-            if (input == 'z' || input == 'q' || input == 's' || input == 'd') {
-                board.movement_player(this, input);
-            } else if (input == 'Z' || input == 'Q' || input == 'S' || input == 'D') {
-                board.movement_player(this, input);
-            }
-            else{
-                choice_where_to_move(board);
-            }
+        else{
+            choice_where_to_move(board);
         }
     }
 

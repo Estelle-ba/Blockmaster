@@ -83,7 +83,7 @@ public class game {
             if(current_player != null) {
                 if (player.WallCollision(board, board.board, current_player.position[1], current_player.position[0])) {
                     board.nb_player -= 1;
-                    System.out.println(current_player.name + " loose !");
+                    System.out.println(current_player.color + "   " + Style.colors.C_Reset+ " " + current_player.name + ", you loose !");
                     list_player[number_player] = null;
                 }
                 else {
