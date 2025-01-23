@@ -23,15 +23,17 @@ public class Menu {
 
         while (!choiceF.equals("PLAY") && !choiceF.equals("play")
                 && !choiceF.equals("RULES") && !choiceF.equals("rules")
-                && !choiceF.equals("QUIT") && !choiceF.equals("quit")) {
+                && !choiceF.equals("QUIT") && !choiceF.equals("quit")
+                && !choiceF.equals("SCORE") && !choiceF.equals("score")) {
             // When you write down something invalid
             if (choiceF != "") {
                 System.out.println("⚠ Incorrect entry (please follow instructions) ⚠");
                 System.out.println("------------------------------------------------------------------------");
             }
             // Choose what to do
-            System.out.println("Write down what you want to do :");
-            System.out.println("[ PLAY = Launch a party | RULES = See the rules | QUIT = Stop the game ]");
+            System.out.println("- Write down what you want to do : -------------------------------------");
+            System.out.println("⌈       PLAY = Launch a party       |       SCORE = See the rules      ⌉");
+            System.out.println("⌊       RULES = See the rules       |       QUIT = Stop the game       ⌋");
             System.out.println("------------------------------------------------------------------------");
             // Write down a new choice
             if (entry.hasNextLine()) {
@@ -46,6 +48,9 @@ public class Menu {
             byte number_player = 0;
 
             game.turns(board, list_player, number_player);
+        } else if (choiceF.equals("SCORE") || choiceF.equals("score")) {
+        // To go to the score page
+            Score.score_display();
 
         } else if (choiceF.equals("RULES") || choiceF.equals("rules")) {
         // To go to the rules of the game
@@ -54,8 +59,8 @@ public class Menu {
         // To exit the program
         } else if (choiceF.equals("QUIT") || choiceF.equals("quit")){
             System.out.println("------------------------------------------------------------------------");
-            System.out.println("Destruct Chess* is closing, thank you for playing !");
-            System.out.println("Credits : Draxan LT, Thiméo O, Estelle B, Shayan C");
+            System.out.println("         Destruct Chess* is closing, thank you for playing !");
+            System.out.println("         Credits : Draxan LT, Thiméo O, Estelle B, Shayan C");
             System.out.println("------------------------------------------------------------------------");
             System.exit(0);
         }

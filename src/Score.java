@@ -45,5 +45,24 @@ public class Score {
             return false;
         }
     }
+
+    public static void score_display() {
+        System.out.println("------------------------------------------------------------------------");
+        System.out.println("-------------------------------- SCORE ---------------------------------");
+        System.out.println("------------------------------------------------------------------------");
+        // Place where the 10 best scores will be print
+
+
+
+        System.out.println("------------------------------------------------------------------------");
+        System.out.println("              Press any key to return to the main menu");
+        System.out.println("------------------------------------------------------------------------");
+
+        try {
+            System.in.read();
+        } catch (Exception e) {
+            Menu.mainMenu("");
+        }
+    }
 }
 
