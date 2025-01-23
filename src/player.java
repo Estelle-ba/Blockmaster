@@ -12,6 +12,7 @@ public class player {
     player()
     {
     }
+
     //Method
     public void create_new_player(String new_name, String new_color, char new_sign, int x, int y, gameboard board) {
         /**
@@ -22,6 +23,7 @@ public class player {
         changePosition(x, y);
         board.nb_player +=1;
         board.board[y][x] = sign;
+        color = new_color;
     }
 
     public void changePosition(int x, int y) {

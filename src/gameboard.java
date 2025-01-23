@@ -20,7 +20,7 @@ public class gameboard{
          */
 
         Style.colorDisplay(board);
-        }
+    }
 
 
 
@@ -39,7 +39,7 @@ public class gameboard{
             player.choice_where_to_destruct(this);
         }
         else if (board[y-1][x-1] == empty){
-            board[y-1][x-1] = 'H';
+            board[y-1][x-1] = wall;
         }
     }
 
