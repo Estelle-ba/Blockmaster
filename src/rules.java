@@ -1,4 +1,11 @@
 public class rules { // Définition de la classe englobante
+
+    //display of rules
+        //system to leave the page :
+        //if the player clicks on key, the page closes
+            //otherwise the page remains
+
+
     // Définition de la méthode rules_display
 
     //String choiceF =
