@@ -20,13 +20,21 @@
         // Print each player's name and score
 
 
-
 import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Utility class to manage player scores stored in a file.
+ */
 public class Scores {
 
+    /**
+     * Loads player data from a specified file.
+     *
+     * @param filename the name of the file containing player data in the format "name,score"
+     * @return a list of players where each player is represented as a string array with their name and score
+     */
     public static List<String[]> loadPlayerFile(String filename) {
         List<String[]> players = new ArrayList<>(); // Initialize a list to store player data
         try (BufferedReader reader = new BufferedReader(new FileReader(filename))) {
@@ -41,6 +49,12 @@ public class Scores {
         return players; // Return the list of players
     }
 
+    /**
+     * Writes player data to a specified file.
+     *
+     * @param players  the list of players to write, where each player is represented as a string array with their name and score
+     * @param filename the name of the file to write the player data to
+     */
     public static void writePlayerFile(List<String[]> players, String filename) {
         try (BufferedWriter writer = new BufferedWriter(new FileWriter(filename))) {
             // Write each player's name and score back to the file
@@ -53,6 +67,13 @@ public class Scores {
         }
     }
 
+    /**
+     * Updates the score of a specific player. If the player already exists in the file, their score is incremented.
+     * If the player does not exist, they are added to the file with an initial score of 1.
+     *
+     * @param winnerName the name of the player who won
+     * @param filename   the name of the file containing player data
+     */
     public static void updatePlayerScore(String winnerName, String filename) {
         List<String[]> players = loadPlayerFile(filename); // Load current players and scores from the file
         boolean found = false; // Track if the winner is already in the file
@@ -74,6 +95,11 @@ public class Scores {
         writePlayerFile(players, filename); // Save the updated player list back to the file
     }
 
+    /**
+     * Displays all player scores in the console.
+     *
+     * @param filename the name of the file containing player data
+     */
     public static void displayScores(String filename) {
         List<String[]> players = loadPlayerFile(filename); // Load players and scores from the file
         System.out.println("Current scores:"); // Display a header
