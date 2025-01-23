@@ -1,7 +1,7 @@
 Alice,2
 Bob,2
 Thimeo,2
-test,3
+Draw,3
 test9,2
 test3,2
 test8,2

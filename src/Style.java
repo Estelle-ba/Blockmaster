@@ -30,52 +30,65 @@ public class Style {
      * @param board a 2D character array representing the game board.
      */
     public static void colorDisplay(char[][] board) {
-        System.out.println("    A  B  C  D  E  F  G  H  I  J  K ");
+        int cpt = 0;
+
+
         for (int i = 0; i < board.length; i++) {
-            if (i < 9) {
-                System.out.print(" "+(i+1)+" ");
-            } else { System.out.print((i+1)+" "); }
+            cpt += 1;
+            System.out.print(Style.colors.BLACK + "   " + Style.colors.C_Reset);
+            System.out.print(Style.colors.White + "   " + Style.colors.C_Reset);
+            System.out.print(Style.colors.GrayDark + "         " + Style.colors.C_Reset);
+            if (cpt < 11) {
+                if (cpt == 10) {
+                    System.out.print(Style.colors.BLACK + cpt + " " + Style.colors.C_Reset);
+                } else {System.out.print(Style.colors.BLACK + " " + cpt + " " + Style.colors.C_Reset);}
+
+            } else {System.out.print(Style.colors.BLACK + "   " + Style.colors.C_Reset);}
 
             for (int j = 0; j < board[0].length; j++) {
                 switch (board[i][j]) {
-                    // Assign the _s with colored blocks
+                    // Assign the _s with a black block
                     case '_':
                         if((i+j)%2 == 0){
-                            System.out.print(colors.BG_BeautyBlack + "   " + colors.C_Reset);
+                            System.out.print(Style.colors.BG_BeautyBlack + "   " + Style.colors.C_Reset);
                         }
                         else{
-                            System.out.print(colors.BG_White + "   " + colors.C_Reset);
+                            System.out.print(Style.colors.BG_White + "   " + Style.colors.C_Reset);
                         }
                         break;
 
                     // Assign the W player with a blue block
                     case 'W':
-                        System.out.print(colors.BG_Blue + "   " + colors.C_Reset);
+                        System.out.print(Style.colors.BG_Blue + "   " + Style.colors.C_Reset);
                         break;
 
                     // Assign the X player with a blue block
                     case 'X':
-                        System.out.print(colors.BG_Red + "   " + colors.C_Reset);
+                        System.out.print(Style.colors.BG_Red + "   " + Style.colors.C_Reset);
                         break;
 
                     // Assign the Y player with a blue block
                     case 'Y':
-                        System.out.print(colors.BG_Green + "   " + colors.C_Reset);
+                        System.out.print(Style.colors.BG_Green + "   " + Style.colors.C_Reset);
                         break;
 
                     // Assign the Z player with a blue block
                     case 'Z':
-                        System.out.print(colors.BG_Yellow + "   " + colors.C_Reset);
+                        System.out.print(Style.colors.BG_Yellow + "   " + Style.colors.C_Reset);
                         break;
 
                     case 'H':
-                        System.out.print(colors.BG_Gray + "   " + colors.C_Reset);
+                        System.out.print(Style.colors.BG_Gray + "   " + Style.colors.C_Reset);
                         break;
                 }
 
             }
+            System.out.print(Style.colors.BLACK + "   " + Style.colors.C_Reset);
+            System.out.print(Style.colors.GrayDark + "         " + Style.colors.C_Reset);
+            System.out.print(Style.colors.White + "   " + Style.colors.C_Reset);
+            System.out.print(Style.colors.BLACK + "   " + Style.colors.C_Reset);
             System.out.print('\n');
         }
-        System.out.print('\n');
+
     }
 }

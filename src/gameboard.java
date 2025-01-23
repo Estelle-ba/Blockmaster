@@ -18,8 +18,9 @@ public class gameboard{
         /**
          * This function make the gameboard appears
          */
-
+        Draw.draw_gameboy(Draw.color1);
         Style.colorDisplay(board);
+        Draw.draw_gameboy(Draw.color2);
     }
 
 
