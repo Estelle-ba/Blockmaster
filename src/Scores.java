@@ -5,7 +5,7 @@ import java.util.List;
 public class Scores {
 
     public static List<String[]> loadPlayerFile(String filename) {
-        List<String[]> players = new ArrayList<>();
+        List<String[]> players = new ArrayList<>(); //déclare la liste des joeurs
         try (BufferedReader reader = new BufferedReader(new FileReader(filename))) {
             String line;
             while ((line = reader.readLine()) != null) {
