@@ -99,7 +99,6 @@ public class Scores {
                 choiceS = Menu.entry.nextLine();
             }
         }
-        // To go to the party option before launching a party
         if (choiceS.equals("ACS") || choiceS.equals("acs")) {
             // To go to the score page
             sortBy = true;
@@ -115,13 +114,10 @@ public class Scores {
             // To go to the rules of the game
             Menu.mainMenu("");
 
-            // To exit the program
+
         } else if (choiceS.equals("QUIT") || choiceS.equals("quit")){
-            System.out.println("------------------------------------------------------------------------");
-            System.out.println("         Destruct Chess* is closing, thank you for playing !");
-            System.out.println("         Credits : Draxan LT, Thiméo O, Estelle B, Shayan C");
-            System.out.println("------------------------------------------------------------------------");
-            System.exit(0);
+            // To exit the program
+            Menu.exitGame();
         }
     }
 }
