@@ -8,6 +8,7 @@ public class player {
     int [] position = new int[2];
     char sign;
     String name;
+    int score = 0;
     player()
     {
     }
