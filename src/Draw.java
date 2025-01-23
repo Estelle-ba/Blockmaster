@@ -33,7 +33,10 @@ public class Draw
     };
 
 
-
+    /**
+     * This function prints a drawing from a drawing
+     * @param color a matrix for drawing
+     */
     public static void draw_gameboy(char[][] color) {
         String cpt = " A ";
         for (int i = 0; i < color.length; i++) {
