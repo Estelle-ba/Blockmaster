@@ -79,14 +79,14 @@ public class player {
             board.movement_player(this, input);
 
         } else if (input == 'b' || input == 'B') {
-            int random = new Random().nextInt(5);
+            int random = new Random().nextInt(3);
 
             if (random == 0) {
                 RR = true;
             }
             choice_where_to_move(board);
         } else if (input == 'p' || input == 'P') {
-            int random = new Random().nextInt(5);
+            int random = new Random().nextInt(3);
 
             if (random == 0) {
                 keyboard_key = true;
