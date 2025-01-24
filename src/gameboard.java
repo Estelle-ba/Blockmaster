@@ -31,7 +31,7 @@ public class gameboard{
      * @param y : take the horizontal coordonates
      */
     public void destruct(player player, byte x, byte y) {
-        if(x-1<0 || x > board.length-1){
+        if(x-1<0 || x-1 > board.length){
             System.out.println("Not in a valid position !");
             player.choice_where_to_destruct(this);
         }
