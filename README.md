@@ -1,5 +1,5 @@
 
-# Destruc-Chess
+# Blockmaster
 
 ## FR
 
